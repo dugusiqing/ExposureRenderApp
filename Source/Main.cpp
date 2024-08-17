@@ -19,7 +19,7 @@ int main(int ArgumentCount, char* pArgv[])
 {
 	// Create the application
     QApplication Application(ArgumentCount, pArgv);
-
+	//$(TargetPath)
 	// Adjust style
 	Application.setStyle("plastique");
 	Application.setOrganizationName("TU Delft");

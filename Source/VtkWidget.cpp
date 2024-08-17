@@ -19,7 +19,7 @@
 
 #include <vtkMetaImageReader.h>
 #include <vtkVolumeProperty.h>
-
+#include <QVTKOpenGLNativeWidget.h>
 void KeyPressCallbackFunction(vtkObject* pCaller, long unsigned int EventId, void* pClientData, void* pCallData)
 {
  	vtkRenderWindowInteractor* pRenderWindowInteractor = static_cast<vtkRenderWindowInteractor*>(pCaller);
@@ -77,7 +77,7 @@ CVtkWidget::CVtkWidget(QWidget* pParent) :
 	SetupRenderView();
 }
 
-QVTKWidget* CVtkWidget::GetQtVtkWidget(void)
+QVTKOpenGLNativeWidget* CVtkWidget::GetQtVtkWidget(void)
 {
 	return &m_QtVtkWidget;
 }
@@ -101,7 +101,7 @@ void CVtkWidget::OnRenderBegin(void)
 	m_ImageImport->Update();
 
 	m_ImageActor->SetInterpolate(1);
-	m_ImageActor->SetInput(m_ImageImport->GetOutput());
+	m_ImageActor->SetInputData(m_ImageImport->GetOutput());
 	m_ImageActor->SetScale(1, -1, -1);
 	m_ImageActor->VisibilityOn();
 
@@ -132,7 +132,7 @@ void CVtkWidget::SetupRenderView(void)
 	m_SceneRenderer->GetActiveCamera()->ParallelProjectionOn();
 
 	// Get render window and configure
-	m_RenderWindow = GetQtVtkWidget()->GetRenderWindow();
+	m_RenderWindow = GetQtVtkWidget()->renderWindow();
 	m_RenderWindow->AddRenderer(m_SceneRenderer);
 
 	// Key press callback
@@ -179,7 +179,7 @@ void CVtkWidget::OnRenderLoopTimer(void)
 	m_ImageImport->SetDataExtentToWholeExtent();
 	m_ImageImport->Update();
 	
-	m_ImageActor->SetInput(m_ImageImport->GetOutput());
+	m_ImageActor->SetInputData(m_ImageImport->GetOutput());
 
 	m_RenderWindow->GetInteractor()->Render();
 }

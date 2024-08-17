@@ -33,7 +33,7 @@ public:
 
 		virtual ~CTiming(void) {};
 
-		HO CTiming& CTiming::operator=(const CTiming& Other)
+		HO CTiming&operator=(const CTiming& Other)
 		{
 				strcpy_s(m_Name, Other.m_Name);
 		

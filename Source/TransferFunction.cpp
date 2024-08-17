@@ -217,7 +217,7 @@ void QTransferFunction::RemoveNode(QNode* pNode)
 	int NodeIndex = m_Nodes.indexOf(*pNode);
 
 	// Remove from list and memory
-	m_Nodes.remove(*pNode);
+	m_Nodes.removeOne(*pNode);
 
 	// Update ID's
 	for (int i = 0; i < m_Nodes.size(); i++)
@@ -333,9 +333,9 @@ void QTransferFunction::ReadXML(QDomElement& Parent)
 	{
 		// Create new node
 		QNode Node(this);
-
+		QDomElement tmp = DomNode.toElement();
 		// Load preset into it
-		Node.ReadXML(DomNode.toElement());
+		Node.ReadXML(tmp);
 
 		// Add the node to the list
 		AddNode(Node);

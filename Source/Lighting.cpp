@@ -96,7 +96,7 @@ void QLighting::RemoveLight(QLight* pLight)
 	Log("'" + pLight->GetName() + "' removed from the scene", "light-bulb");
 
 	// Remove from light list
-	m_Lights.remove(*pLight);
+	m_Lights.removeOne(*pLight);
 
 	m_pSelectedLight = NULL;
 
@@ -241,7 +241,8 @@ void QLighting::ReadXML(QDomElement& Parent)
 		m_Lights.append(LightPreset);
 
 		// Load preset into it
-		m_Lights.back().ReadXML(DomNode.toElement());
+		QDomElement tmp = DomNode.toElement();
+		m_Lights.back().ReadXML(tmp);
 	}
 
 	QDomElement Background = Parent.firstChildElement("Background").toElement();
@@ -274,8 +275,8 @@ QLighting QLighting::Default(void)
 	QLighting DefaultLighting;
 
 	DefaultLighting.SetName("Default");
-
-	DefaultLighting.AddLight(QLight::Default());
+	QLight tmpLight = QLight::Default();
+	DefaultLighting.AddLight(tmpLight);
 
 	DefaultLighting.Background().SetTopColor(QColor(85, 170, 255));
 	DefaultLighting.Background().SetMiddleColor(QColor(255, 170, 127));
