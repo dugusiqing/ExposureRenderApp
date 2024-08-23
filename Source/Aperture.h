@@ -21,8 +21,8 @@ class QAperture : public QPresetXML
 
 public:
 	QAperture(QObject* pParent = NULL);
-	QAperture(const QAperture& Other);
-	QAperture& operator=(const QAperture& Other);
+	QAperture::QAperture(const QAperture& Other);
+	QAperture& QAperture::operator=(const QAperture& Other);
 
 	float			GetSize(void) const;
 	void			SetSize(const float& Size);

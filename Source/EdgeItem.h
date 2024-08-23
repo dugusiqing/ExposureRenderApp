@@ -20,7 +20,7 @@ class QEdgeItem : public QGraphicsLineItem
 public:
 	QEdgeItem(QTransferFunctionItem* pTransferFunctionItem);
 
-	QEdgeItem(const QEdgeItem& Other)
+	QEdgeItem::QEdgeItem(const QEdgeItem& Other)
 	{
 		*this = Other;
 	};

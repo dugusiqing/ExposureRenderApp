@@ -107,7 +107,7 @@ Vec3f QCamera::GetFrom(void) const
 void QCamera::SetFrom(const Vec3f& From)
 {
 	m_From = From;
-
+	
 	emit Changed();
 }
 
@@ -135,18 +135,14 @@ void QCamera::SetUp(const Vec3f& Up)
 	emit Changed();
 }
 
-void QCamera::ReadXML( QDomElement& Parent)
+void QCamera::ReadXML(QDomElement& Parent)
 {
 	QPresetXML::ReadXML(Parent);
-	QDomElement tmpFilm = Parent.firstChildElement("Film");
-	m_Film.ReadXML(tmpFilm);
 
-	QDomElement tmpAperture = Parent.firstChildElement("Aperture");
-	m_Aperture.ReadXML(tmpAperture);
-	QDomElement tmpProjection = Parent.firstChildElement("Projection");
-	m_Projection.ReadXML(tmpProjection);
-	QDomElement tmpFocus = Parent.firstChildElement("Focus");
-	m_Focus.ReadXML(tmpFocus);
+	m_Film.ReadXML(Parent.firstChildElement("Film"));
+	m_Aperture.ReadXML(Parent.firstChildElement("Aperture"));
+	m_Projection.ReadXML(Parent.firstChildElement("Projection"));
+	m_Focus.ReadXML(Parent.firstChildElement("Focus"));
 
 	ReadVectorElement(Parent, "From", m_From.x, m_From.y, m_From.z);
 	ReadVectorElement(Parent, "Target", m_Target.x, m_Target.y, m_Target.z);

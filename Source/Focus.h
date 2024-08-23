@@ -21,8 +21,8 @@ class QFocus : public QPresetXML
 
 public:
 	QFocus(QObject* pParent = NULL);
-	QFocus(const QFocus& Other);
-	QFocus& operator=(const QFocus& Other);
+	QFocus::QFocus(const QFocus& Other);
+	QFocus& QFocus::operator=(const QFocus& Other);
 
 	int			GetType(void) const;
 	void		SetType(const int& Type);

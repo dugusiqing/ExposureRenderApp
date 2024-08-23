@@ -197,6 +197,7 @@ void QRenderThread::run()
 	
 	Log("Device memory: " + QString::number(GetUsedCudaMemory() / MB, 'f', 2) + "/" + QString::number(GetTotalCudaMemory() / MB, 'f', 2) + " MB", "memory");
 
+	//如果界面更新了参数
 	QObject::connect(&gTransferFunction, SIGNAL(Changed()), this, SLOT(OnUpdateTransferFunction()));
 	QObject::connect(&gCamera, SIGNAL(Changed()), this, SLOT(OnUpdateCamera()));
 	QObject::connect(&gLighting, SIGNAL(Changed()), this, SLOT(OnUpdateLighting()));
@@ -205,8 +206,9 @@ void QRenderThread::run()
 	QObject::connect(&gStatus, SIGNAL(RenderPause(const bool&)), this, SLOT(OnRenderPause(const bool&)));
 
 	// Try to load appearance/lighting/camera presets with the same name as the loaded file
+	
 	gStatus.SetLoadPreset(QFileInfo(m_FileName).baseName());
-
+	
 	// Keep track of frames/second
 	CTiming FPS, RenderImage, BlurImage, PostProcessImage, DenoiseImage;
 
@@ -301,7 +303,6 @@ void QRenderThread::run()
 
 				SaveImage((unsigned char*)m_pRenderImage, SceneCopy.m_Camera.m_Film.m_Resolution.GetResX(), SceneCopy.m_Camera.m_Film.m_Resolution.GetResY(), ImageFilePath);
 			}
-
  			gStatus.SetPostRenderFrame();
 		}
 	}
@@ -344,7 +345,7 @@ void QRenderThread::run()
 bool QRenderThread::Load(QString& FileName)
 {
 	m_FileName = FileName;
-
+	
 	// Create meta image reader
 	vtkSmartPointer<vtkMetaImageReader> MetaImageReader = vtkMetaImageReader::New();
 

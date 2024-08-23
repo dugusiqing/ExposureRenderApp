@@ -13,6 +13,8 @@
 
 #pragma once
 
+#include <iostream>
+
 #include "Preset.h"
 
 class QPresetsWidgetBase : public QGroupBox
@@ -28,6 +30,9 @@ public:
 
 	virtual void LoadPresets(const bool& ChoosePath)
 	{
+		std::cout << __FILE__ << "\t";
+		std::cout << __LINE__ << "\t";
+		std::cout << __FUNCTION__ << "\n";
 	};
 
 	virtual void SavePresets(const bool& ChoosePath)
@@ -72,11 +77,13 @@ public:
 	QPresetsWidget(QWidget* pParent, const QString& InternalName, const QString& UserInterfaceName) :
 		QPresetsWidgetBase(pParent, InternalName, UserInterfaceName)
 	{
+		std::cout << __FILE__ << "\t";
+		std::cout << __LINE__ << "\t";
+		std::cout << __FUNCTION__ << "\n";
 		LoadPresets(false);
-
+		
 		// Add default preset
-		T tmp = T::Default();
-		InsertPreset(0, tmp);
+		InsertPreset(0, T::Default());
 	}
 
 	virtual ~QPresetsWidget(void)
@@ -95,7 +102,7 @@ public:
 			//QVariant Variant = qVariantFromValue((void*)m_PresetItems[i]);
 			
 			// NOTE See if this is the intended behaviour
-			QVariant Variant = qVariantFromValue((void*)&m_Presets[i]);
+			QVariant Variant = QVariant::fromValue((void*)&m_Presets[i]);
 
 			// Add the item
 			m_PresetName.addItem(m_Presets[i].GetName(), Variant);
@@ -168,6 +175,9 @@ public:
 	void LoadPresets(const bool& ChoosePath)
 	{
 		// Clear presets list
+		std::cout << __FILE__ << "\t";
+		std::cout << __LINE__ << "\t";
+		std::cout << __FUNCTION__ << "\n";
 		m_Presets.clear();
 
 		// XML file containing transfer function presets
@@ -222,8 +232,7 @@ public:
 			m_Presets.append(NewPreset);
 
 			// Load the preset into it
-			QDomElement tmp = Node.toElement();
-			m_Presets.back().ReadXML(tmp);
+			m_Presets.back().ReadXML(Node.toElement());
 		}
 
 		XmlFile.close();

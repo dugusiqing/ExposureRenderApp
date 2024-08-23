@@ -39,6 +39,9 @@ QLightingWidget::QLightingWidget(QWidget* pParent) :
 
 void QLightingWidget::OnLoadPreset(const QString& Name)
 {
+	std::cout << __FILE__ << "\t";
+	std::cout << __LINE__ << "\t";
+	std::cout << __FUNCTION__ << "\n";
 	// Only load the preset when it exists
 	if (!m_PresetsWidget.HasPreset(Name))
 		return;

@@ -241,8 +241,7 @@ void QLighting::ReadXML(QDomElement& Parent)
 		m_Lights.append(LightPreset);
 
 		// Load preset into it
-		QDomElement tmp = DomNode.toElement();
-		m_Lights.back().ReadXML(tmp);
+		m_Lights.back().ReadXML(DomNode.toElement());
 	}
 
 	QDomElement Background = Parent.firstChildElement("Background").toElement();
@@ -275,8 +274,8 @@ QLighting QLighting::Default(void)
 	QLighting DefaultLighting;
 
 	DefaultLighting.SetName("Default");
-	QLight tmpLight = QLight::Default();
-	DefaultLighting.AddLight(tmpLight);
+
+	DefaultLighting.AddLight(QLight::Default());
 
 	DefaultLighting.Background().SetTopColor(QColor(85, 170, 255));
 	DefaultLighting.Background().SetMiddleColor(QColor(255, 170, 127));

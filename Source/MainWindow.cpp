@@ -63,7 +63,46 @@ CMainWindow::CMainWindow() :
 
 	//OnCheckForUpdates();
 }
+void CMainWindow::OnRenderBegin(void)
+{
+	Log("Rendering started", "control");
+	bool isEnble = true;
+	m_LightingDockWidget.setEnabled(isEnble);
+	m_AppearanceDockWidget.setEnabled(isEnble);
+	m_StatisticsDockWidget.setEnabled(isEnble);
+	m_CameraDockWidget.setEnabled(isEnble);
+	m_SettingsDockWidget.setEnabled(isEnble);
+	m_LogDockWidget.setEnabled(isEnble);
+}
 
+void CMainWindow::OnRenderEnd(void)
+{
+	Log("Rendering ended", "control-stop-square");
+
+	for (int i = 0; i < MaxRecentFiles; i++)
+	{
+		if (m_pRecentFileActions[i])
+			m_pRecentFileActions[i]->setEnabled(true);
+	}
+
+	m_LightingDockWidget.setEnabled(false);
+	m_AppearanceDockWidget.setEnabled(false);
+	m_StatisticsDockWidget.setEnabled(false);
+	m_CameraDockWidget.setEnabled(false);
+	m_SettingsDockWidget.setEnabled(false);
+	m_LogDockWidget.setEnabled(false);
+}
+
+void CMainWindow::ShowStartupDialog(void)
+{
+	Close();
+
+	QStartupDialog StartupDialog;
+
+	connect(&StartupDialog, SIGNAL(LoadDemo(const QString&)), gpMainWindow, SLOT(OnLoadDemo(const QString&)));
+
+	StartupDialog.exec();
+}
 CMainWindow::~CMainWindow(void)
 {
 	KillRenderThread();
@@ -281,46 +320,7 @@ void CMainWindow::About()
 	AboutDialog.exec();
 }
 
-void CMainWindow::OnRenderBegin(void)
-{
-	Log("Rendering started", "control");
 
-	m_LightingDockWidget.setEnabled(true);
-	m_AppearanceDockWidget.setEnabled(true);
-	m_StatisticsDockWidget.setEnabled(true);
-	m_CameraDockWidget.setEnabled(true);
-	m_SettingsDockWidget.setEnabled(true);
-	m_LogDockWidget.setEnabled(true);
-}
-
-void CMainWindow::OnRenderEnd(void)
-{
-	Log("Rendering ended", "control-stop-square");
-
-	for (int i = 0; i < MaxRecentFiles; i++)
-	{
-		if (m_pRecentFileActions[i])
-			m_pRecentFileActions[i]->setEnabled(true);
-	}
-
-	m_LightingDockWidget.setEnabled(false);
-	m_AppearanceDockWidget.setEnabled(false);
-	m_StatisticsDockWidget.setEnabled(false);
-	m_CameraDockWidget.setEnabled(false);
-	m_SettingsDockWidget.setEnabled(false);
-	m_LogDockWidget.setEnabled(false);
-}
-
-void CMainWindow::ShowStartupDialog(void)
-{
-	Close();
-
-	QStartupDialog StartupDialog;
-
-	connect(&StartupDialog, SIGNAL(LoadDemo(const QString&)), gpMainWindow, SLOT(OnLoadDemo(const QString&)));
-
-	StartupDialog.exec();
-}
 
 void CMainWindow::OnVisitWebsite(void)
 {

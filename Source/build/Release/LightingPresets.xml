@@ -1,0 +1,141 @@
+<!DOCTYPE Lighting>
+<Presets>
+<Preset Name="manix_small">
+<Lights>
+<Light Name="Key">
+<Theta Value="181.53799"/>
+<Phi Value="23.846201"/>
+<Distance Value="2.9059999"/>
+<Width Value="0.0099999998"/>
+<Height Value="0.0099999998"/>
+<LockSize Value="1"/>
+<Color G="170" R="255" B="127"/>
+<Intensity Value="100"/>
+</Light>
+</Lights>
+<Background>
+<Enable Value="1"/>
+<TopColor G="170" R="85" B="255"/>
+<MiddleColor G="170" R="255" B="127"/>
+<BottomColor G="170" R="255" B="127"/>
+<Intensity Value="3.3606999"/>
+<UseTexture Value="0"/>
+<File Value=""/>
+</Background>
+</Preset>
+<Preset Name="bonsai_small">
+<Lights>
+<Light Name="Sun">
+<Theta Value="150.769"/>
+<Phi Value="0.76920003"/>
+<Distance Value="2.1368001"/>
+<Width Value="0.0099999998"/>
+<Height Value="0.0099999998"/>
+<LockSize Value="1"/>
+<Color G="170" R="255" B="127"/>
+<Intensity Value="100"/>
+</Light>
+</Lights>
+<Background>
+<Enable Value="1"/>
+<TopColor G="170" R="85" B="255"/>
+<MiddleColor G="55" R="84" B="40"/>
+<BottomColor G="85" R="170" B="0"/>
+<Intensity Value="5.9836001"/>
+<UseTexture Value="0"/>
+<File Value=""/>
+</Background>
+</Preset>
+<Preset Name="engine_small">
+<Lights>
+<Light Name="Light 1">
+<Theta Value="-76.923103"/>
+<Phi Value="23.846201"/>
+<Distance Value="5.8119998"/>
+<Width Value="2.8276999"/>
+<Height Value="2.8276999"/>
+<LockSize Value="1"/>
+<Color G="170" R="255" B="127"/>
+<Intensity Value="100"/>
+</Light>
+</Lights>
+<Background>
+<Enable Value="1"/>
+<TopColor G="108" R="35" B="255"/>
+<MiddleColor G="35" R="53" B="26"/>
+<BottomColor G="0" R="0" B="0"/>
+<Intensity Value="2.9507999"/>
+<UseTexture Value="0"/>
+<File Value=""/>
+</Background>
+</Preset>
+<Preset Name="backpack_small">
+<Lights>
+<Light Name="Key">
+<Theta Value="76.923103"/>
+<Phi Value="74.615402"/>
+<Distance Value="4.0170999"/>
+<Width Value="0.94919997"/>
+<Height Value="0.94919997"/>
+<LockSize Value="1"/>
+<Color G="228" R="255" B="165"/>
+<Intensity Value="100"/>
+</Light>
+</Lights>
+<Background>
+<Enable Value="1"/>
+<TopColor G="170" R="85" B="255"/>
+<MiddleColor G="170" R="255" B="127"/>
+<BottomColor G="85" R="170" B="0"/>
+<Intensity Value="2.4590001"/>
+<UseTexture Value="0"/>
+<File Value=""/>
+</Background>
+</Preset>
+<Preset Name="artifix_small">
+<Lights>
+<Light Name="Key">
+<Theta Value="120"/>
+<Phi Value="11.5385"/>
+<Distance Value="3.2479"/>
+<Width Value="0.60769999"/>
+<Height Value="0.60759997"/>
+<LockSize Value="1"/>
+<Color G="255" R="255" B="242"/>
+<Intensity Value="100"/>
+</Light>
+</Lights>
+<Background>
+<Enable Value="1"/>
+<TopColor G="100" R="29" B="255"/>
+<MiddleColor G="53" R="80" B="40"/>
+<BottomColor G="85" R="170" B="0"/>
+<Intensity Value="2.9507999"/>
+<UseTexture Value="0"/>
+<File Value=""/>
+</Background>
+</Preset>
+<Preset Name="macoessix_small">
+<Lights>
+<Light Name="Key">
+<Theta Value="230.769"/>
+<Phi Value="23.846201"/>
+<Distance Value="2.2221999"/>
+<Width Value="0.0099999998"/>
+<Height Value="0.0099999998"/>
+<LockSize Value="1"/>
+<Color G="170" R="255" B="127"/>
+<Intensity Value="100"/>
+</Light>
+</Lights>
+<Background>
+<Enable Value="1"/>
+<TopColor G="170" R="85" B="255"/>
+<MiddleColor G="82" R="123" B="61"/>
+<BottomColor G="85" R="170" B="0"/>
+<Intensity Value="7.7869"/>
+<UseTexture Value="0"/>
+<File Value=""/>
+</Background>
+</Preset>
+</Presets>

@@ -19,7 +19,6 @@ int main(int ArgumentCount, char* pArgv[])
 {
 	// Create the application
     QApplication Application(ArgumentCount, pArgv);
-	//$(TargetPath)
 	// Adjust style
 	Application.setStyle("plastique");
 	Application.setOrganizationName("TU Delft");
@@ -27,14 +26,17 @@ int main(int ArgumentCount, char* pArgv[])
 	
 	// Application settings
 	QSettings Settings;
-
+	std::cout << "VTK_VERSION:\t" << VTK_VERSION << std::endl;
+	std::cout << "QT_VERSION:\t" << QT_VERSION_MAJOR <<"."<<QT_VERSION_MINOR << "." << QT_VERSION_PATCH << std::endl;
+	std::cout << "VS_VERSION:\t" << _MSC_VER << std::endl;
+	std::cout << "CUDA_VERSION:\t" << CUDA_VERSION << std::endl;
 	Settings.setValue("version", "1.0.0");
 
 	// Main window
 	CMainWindow MainWindow;
 
 	// Show the main window
-	gpMainWindow = &MainWindow;
+	//gpMainWindow = &MainWindow;
 
 	// Show it
 	MainWindow.show();

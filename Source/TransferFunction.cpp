@@ -333,9 +333,9 @@ void QTransferFunction::ReadXML(QDomElement& Parent)
 	{
 		// Create new node
 		QNode Node(this);
-		QDomElement tmp = DomNode.toElement();
+
 		// Load preset into it
-		Node.ReadXML(tmp);
+		Node.ReadXML(DomNode.toElement());
 
 		// Add the node to the list
 		AddNode(Node);

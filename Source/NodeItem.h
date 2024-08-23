@@ -20,7 +20,7 @@ class QNodeItem : public QGraphicsEllipseItem
 {
 public:
 	QNodeItem(QTransferFunctionItem* pTransferFunctionItem, QNode* pNode);
-	QNodeItem(const QNodeItem& Other);
+	QNodeItem::QNodeItem(const QNodeItem& Other);
 	QNodeItem& operator = (const QNodeItem& Other);
 
 	void UpdateTooltip(void);

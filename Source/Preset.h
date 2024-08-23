@@ -20,7 +20,7 @@ class QPresetXML : public QObject
 public:
 	QPresetXML(QObject* pParent = NULL, const QString& Name = "");
 
-	QPresetXML(const QPresetXML& Other)
+	QPresetXML::QPresetXML(const QPresetXML& Other)
 	{
 		m_Name = Other.m_Name;
 

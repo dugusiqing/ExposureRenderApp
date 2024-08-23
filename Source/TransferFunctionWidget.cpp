@@ -96,8 +96,7 @@ void QTransferFunctionWidget::OnRenderBegin(void)
 void QTransferFunctionWidget::OnRenderEnd(void)
 {
 	m_Canvas.setEnabled(false);
-	QHistogram tmpHis = QHistogram();
-	m_Canvas.SetHistogram(tmpHis);
+	m_Canvas.SetHistogram(QHistogram());
 }
 
 void QTransferFunctionWidget::OnUpdateGradients(void)

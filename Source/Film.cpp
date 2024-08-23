@@ -104,9 +104,11 @@ void QFilm::UnDirty(void)
 
 void QFilm::ReadXML(QDomElement& Parent)
 {
-	SetWidth(Parent.firstChildElement("Width").attribute("Value").toFloat());
+	int width = Parent.firstChildElement("Width").attribute("Value").toFloat();
+	SetWidth(width);
 	SetHeight(Parent.firstChildElement("Height").attribute("Value").toFloat());
-	SetExposure(Parent.firstChildElement("Exposure").attribute("Value").toFloat());
+	float exposure = Parent.firstChildElement("Exposure").attribute("Value").toFloat();
+	SetExposure(exposure);
 //	SetNoiseReduction(Parent.firstChildElement("NoiseReduction").attribute("Value").toInt());
 }
 

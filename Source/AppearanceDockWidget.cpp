@@ -41,6 +41,9 @@ QAppearanceWidget::QAppearanceWidget(QWidget* pParent) :
 
 void QAppearanceWidget::OnLoadPreset(const QString& Name)
 {
+	std::cout << __FILE__ << "\t";
+	std::cout << __LINE__ << "\t";
+	std::cout << __FUNCTION__ << "\n";
 	m_PresetsWidget.LoadPreset(gTransferFunction, Name);
 }
 

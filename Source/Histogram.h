@@ -19,7 +19,7 @@ class QHistogram : public QObject
 
 public:
     QHistogram(QObject* pParent = NULL);
-	QHistogram(const QHistogram& Other);
+	QHistogram::QHistogram(const QHistogram& Other);
 	QHistogram& operator = (const QHistogram& Other);
 
 	bool			GetEnabled(void) const;

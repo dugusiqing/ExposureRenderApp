@@ -155,7 +155,7 @@ void QBackground::ReadXML(QDomElement& Parent)
 	SetIntensity(Parent.firstChildElement("Intensity").attribute("Value").toFloat());
 
 	SetUseTexture(Parent.firstChildElement("UseTexture").attribute("Value").toInt());
-	SetFile(Parent.firstChildElement("Height").attribute("Value"));
+	SetFile(Parent.firstChildElement("File").attribute("Value"));
 }
 
 QDomElement QBackground::WriteXML(QDomDocument& DOM, QDomElement& Parent)

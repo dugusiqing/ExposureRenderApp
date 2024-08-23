@@ -12,7 +12,7 @@
 */
 
 #pragma once
-
+#pragma warning(disable :4596)
 #include "Defines.h"
 #include "Enumerations.h"
 #include "Dll.h"
@@ -376,7 +376,7 @@ public:
 	}
 
 	// ToDo: Add description
-	HOD CColorXyz& operator=(const CColorXyz& Other)
+	HOD CColorXyz& CColorXyz::operator=(const CColorXyz& Other)
 	{
 		for (int i = 0; i < gNoSamplesSpectrumXYZ; ++i)
 			c[i] = Other.c[i];
@@ -635,7 +635,7 @@ public:
 	}
 
 	// ToDo: Add description
-	HOD CColorXyza& operator=(const CColorXyza& Other)
+	HOD CColorXyza& CColorXyza::operator=(const CColorXyza& Other)
 	{
 		for (int i = 0; i < gNoSamplesSpectrumXYZ; ++i)
 			c[i] = Other.c[i];

@@ -1,0 +1,14 @@
+Source/build/.vs/
+Source/build/CMakeFiles/
+Source/build/ExposureRender.dir/
+Source/build/ExposureRender_autogen/
+Source/build/x64
+*.obj
+*.mhd
+*.raw
+*.png
+*.pdb
+*.exp
+*.exe
+*.mp4
+*.psd

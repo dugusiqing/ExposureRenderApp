@@ -165,7 +165,7 @@ void QLight::SetIntensity(const float& Intensity)
 void QLight::ReadXML(QDomElement& Parent)
 {
 	QPresetXML::ReadXML(Parent);
-
+	
 	m_Theta		= Parent.firstChildElement("Theta").attribute("Value").toFloat();
 	m_Phi		= Parent.firstChildElement("Phi").attribute("Value").toFloat();
 	m_Distance	= Parent.firstChildElement("Distance").attribute("Value").toFloat();

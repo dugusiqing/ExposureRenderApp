@@ -1,0 +1,540 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\build\ExposureRender_autogen\mocs_compilation_Debug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\MainWindow.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\Main.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\LoadSettingsDialog.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\StartupDialog.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\AboutDialog.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\SettingsDockWidget.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\HardwareWidget.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\UpdateWidget.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\HttpGet.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\LightWidget.cpp">
+      <Filter>Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\LightingDockWidget.cpp">
+      <Filter>Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\LightsWidget.cpp">
+      <Filter>Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\LightingWidget.cpp">
+      <Filter>Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\Lighting.cpp">
+      <Filter>Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\Light.cpp">
+      <Filter>Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\Background.cpp">
+      <Filter>Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\BackgroundWidget.cpp">
+      <Filter>Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\TransferFunction.cpp">
+      <Filter>Appearance</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\TransferFunctionView.cpp">
+      <Filter>Appearance</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\TransferFunctionWidget.cpp">
+      <Filter>Appearance</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\NodePropertiesWidget.cpp">
+      <Filter>Appearance</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\AppearanceDockWidget.cpp">
+      <Filter>Appearance</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\NodeItem.cpp">
+      <Filter>Appearance</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\EdgeItem.cpp">
+      <Filter>Appearance</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\Histogram.cpp">
+      <Filter>Appearance</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\Node.cpp">
+      <Filter>Appearance</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\GradientRamp.cpp">
+      <Filter>Appearance</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\HistogramItem.cpp">
+      <Filter>Appearance</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\BackgroundItem.cpp">
+      <Filter>Appearance</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\TransferFunctionItem.cpp">
+      <Filter>Appearance</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\NodeSelectionWidget.cpp">
+      <Filter>Appearance</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\GridItem.cpp">
+      <Filter>Appearance</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\AppearanceSettingsWidget.cpp">
+      <Filter>Appearance</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\Appearance.cpp">
+      <Filter>Appearance</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\Camera.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\CameraDockWidget.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\FilmWidget.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\ApertureWidget.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\ProjectionWidget.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\FocusWidget.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\CameraWidget.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\Film.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\Aperture.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\Projection.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\Focus.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\PresetsWidget.cpp">
+      <Filter>Presets</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\Preset.cpp">
+      <Filter>Presets</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\StatisticsDockWidget.cpp">
+      <Filter>Statistics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\StatisticsWidget.cpp">
+      <Filter>Statistics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\Stable.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\Flags.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\Geometry.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\Spectrum.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\InteractorStyleRealisticCamera.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\RenderThread.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\VtkWidget.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\Scene.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\Controls.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\Utilities.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\CudaUtilities.cpp">
+      <Filter>Cuda</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\Status.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\Timing.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\Variance.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\VolumeMapper.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\Logger.cpp">
+      <Filter>Logging</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\LogWidget.cpp">
+      <Filter>Logging</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\LogDockWidget.cpp">
+      <Filter>Logging</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\build\ExposureRender_autogen\mocs_compilation_Release.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\build\ExposureRender_autogen\mocs_compilation_MinSizeRel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\build\ExposureRender_autogen\mocs_compilation_RelWithDebInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\MainWindow.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\LoadSettingsDialog.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\StartupDialog.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\AboutDialog.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\SettingsDockWidget.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\HardwareWidget.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\HttpGet.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\UpdateWidget.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\AppearanceDockWidget.h">
+      <Filter>Appearance</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\TransferFunction.h">
+      <Filter>Appearance</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\TransferFunctionView.h">
+      <Filter>Appearance</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\TransferFunctionWidget.h">
+      <Filter>Appearance</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\NodePropertiesWidget.h">
+      <Filter>Appearance</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\NodeItem.h">
+      <Filter>Appearance</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\EdgeItem.h">
+      <Filter>Appearance</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\Histogram.h">
+      <Filter>Appearance</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\Node.h">
+      <Filter>Appearance</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\GradientRamp.h">
+      <Filter>Appearance</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\HistogramItem.h">
+      <Filter>Appearance</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\BackgroundItem.h">
+      <Filter>Appearance</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\TransferFunctionItem.h">
+      <Filter>Appearance</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\NodeSelectionWidget.h">
+      <Filter>Appearance</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\GridItem.h">
+      <Filter>Appearance</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\AppearanceSettingsWidget.h">
+      <Filter>Appearance</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\Appearance.h">
+      <Filter>Appearance</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\LightWidget.h">
+      <Filter>Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\LightingDockWidget.h">
+      <Filter>Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\LightsWidget.h">
+      <Filter>Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\LightingWidget.h">
+      <Filter>Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\Lighting.h">
+      <Filter>Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\Light.h">
+      <Filter>Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\Background.h">
+      <Filter>Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\BackgroundWidget.h">
+      <Filter>Lighting</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\Camera.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\CameraDockWidget.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\FilmWidget.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\ApertureWidget.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\ProjectionWidget.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\FocusWidget.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\CameraWidget.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\Film.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\Aperture.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\Projection.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\Focus.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\PresetsWidget.h">
+      <Filter>Presets</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\Preset.h">
+      <Filter>Presets</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\Stable.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\Defines.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\Dll.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\Enumerations.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\Flags.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\Geometry.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\Spectrum.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\InteractorStyleRealisticCamera.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\RenderThread.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\VtkWidget.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\Scene.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\Controls.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\Utilities.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\Status.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\Timing.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\Variance.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\VolumeMapper.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\CudaUtilities.h">
+      <Filter>Cuda</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\Logger.h">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\LogWidget.h">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\LogDockWidget.h">
+      <Filter>Logging</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Works\code\ExposureRenderApp\Source\Core.cu">
+      <Filter>Cuda</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Works\code\ExposureRenderApp\Source\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="D:\Works\code\ExposureRenderApp\Source\ReadMe.txt" />
+    <None Include="D:\Works\code\ExposureRenderApp\Source\Copyright.txt" />
+    <None Include="D:\Works\code\ExposureRenderApp\Source\SingleScattering.cuh">
+      <Filter>Cuda</Filter>
+    </None>
+    <None Include="D:\Works\code\ExposureRenderApp\Source\MultipleScattering.cuh">
+      <Filter>Cuda</Filter>
+    </None>
+    <None Include="D:\Works\code\ExposureRenderApp\Source\Blur.cuh">
+      <Filter>Cuda</Filter>
+    </None>
+    <None Include="D:\Works\code\ExposureRenderApp\Source\Utilities.cuh">
+      <Filter>Cuda</Filter>
+    </None>
+    <None Include="D:\Works\code\ExposureRenderApp\Source\Core.cuh">
+      <Filter>Cuda</Filter>
+    </None>
+    <None Include="D:\Works\code\ExposureRenderApp\Source\Estimate.cuh">
+      <Filter>Cuda</Filter>
+    </None>
+    <None Include="D:\Works\code\ExposureRenderApp\Source\Transport.cuh">
+      <Filter>Cuda</Filter>
+    </None>
+    <None Include="D:\Works\code\ExposureRenderApp\Source\RayMarching.cuh">
+      <Filter>Cuda</Filter>
+    </None>
+    <None Include="D:\Works\code\ExposureRenderApp\Source\Woodcock.cuh">
+      <Filter>Cuda</Filter>
+    </None>
+    <None Include="D:\Works\code\ExposureRenderApp\Source\Denoise.cuh">
+      <Filter>Cuda</Filter>
+    </None>
+    <None Include="D:\Works\code\ExposureRenderApp\Source\Variance.cuh">
+      <Filter>Cuda</Filter>
+    </None>
+    <None Include="D:\Works\code\ExposureRenderApp\Source\NearestIntersection.cuh">
+      <Filter>Cuda</Filter>
+    </None>
+    <None Include="D:\Works\code\ExposureRenderApp\Source\SpecularBloom.cuh">
+      <Filter>Cuda</Filter>
+    </None>
+    <None Include="D:\Works\code\ExposureRenderApp\Source\ToneMap.cuh">
+      <Filter>Cuda</Filter>
+    </None>
+    <None Include="D:\Works\code\ExposureRenderApp\Source\Buffer.cuh">
+      <Filter>Cuda</Filter>
+    </None>
+    <None Include="D:\Works\code\ExposureRenderApp\Source\View.cuh">
+      <Filter>Cuda</Filter>
+    </None>
+    <None Include="D:\Works\code\ExposureRenderApp\Source\Model.cuh">
+      <Filter>Cuda</Filter>
+    </None>
+    <None Include="D:\Works\code\ExposureRenderApp\Source\Shader.cuh">
+      <Filter>Cuda</Filter>
+    </None>
+    <None Include="D:\Works\code\ExposureRenderApp\Source\Sample.cuh">
+      <Filter>Cuda</Filter>
+    </None>
+    <None Include="D:\Works\code\ExposureRenderApp\Source\RNG.cuh">
+      <Filter>Cuda</Filter>
+    </None>
+    <None Include="D:\Works\code\ExposureRenderApp\Source\Camera.cuh">
+      <Filter>Cuda</Filter>
+    </None>
+    <None Include="D:\Works\code\ExposureRenderApp\Source\Lighting.cuh">
+      <Filter>Cuda</Filter>
+    </None>
+    <None Include="D:\Works\code\ExposureRenderApp\Source\MonteCarlo.cuh">
+      <Filter>Cuda</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="D:\Works\code\ExposureRenderApp\Source\build\CMakeFiles\ExposureRender.dir\$(Configuration)\ExposureRender_generated_Core.cu.obj">
+      <Filter>Object Files</Filter>
+    </Object>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Appearance">
+      <UniqueIdentifier>{79BA3E4F-06BC-377A-AA26-737B0CBF0884}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{50E91D71-894A-34BA-AE07-DAEBEA3227F4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{9E9CB6EC-EDF1-3C6F-A73A-CC0B53123AD0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cuda">
+      <UniqueIdentifier>{6EDE3153-0321-31A5-B78D-54B523E3A373}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lighting">
+      <UniqueIdentifier>{559C4697-4CA9-39C7-B5D5-32F5F38613D9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logging">
+      <UniqueIdentifier>{C686E17C-95BA-3CDE-AF3F-D711D5391205}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{C7052100-4AE2-396D-9A0B-1E36CAF26AF7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Files">
+      <UniqueIdentifier>{32580DC5-56C9-37D9-A94F-038497A55DFE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Presets">
+      <UniqueIdentifier>{5A32DC6E-0665-3584-A893-6EA63B2638E3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{96745398-9AEB-3446-8965-74221AD1849D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Statistics">
+      <UniqueIdentifier>{11C66E7D-D655-3D7B-9459-36E04937D3D7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
