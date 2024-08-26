@@ -10,13 +10,87 @@
 #include "Histogram.h"
 #include "Scene.h"
 #include <myMain.h>
-#include <vtkVersionMacros.h>
+#include <QVTKOpenGLNativeWidget.h>
 
 #include "Core.cuh"
 #include "MainWindow.h"
+#include <vtkRenderWindowInteractor.h>
+#include <InteractorStyleRealisticCamera.h>
+#include <conio.h>
+#include <iostream>
+MyQFrameBuffer gMyFrameBuffer;
+MyQFrameBuffer::MyQFrameBuffer(void) :
+	m_pPixels(NULL),
+	m_Width(0),
+	m_Height(0),
+	m_NoPixels(0)
+	
+{
+}
+
+MyQFrameBuffer::MyQFrameBuffer(const MyQFrameBuffer& Other)
+{
+	*this = Other;
+}
+
+MyQFrameBuffer& MyQFrameBuffer::operator=(const MyQFrameBuffer& Other)
+{
+	const bool Dirty = m_Width != Other.m_Width || m_Height != Other.m_Height;
+
+	m_Width = Other.m_Width;
+	m_Height = Other.m_Height;
+	m_NoPixels = Other.m_NoPixels;
+
+	if (Other.m_pPixels != NULL)
+	{
+		const int Size = 3 * m_NoPixels * sizeof(unsigned char);
+
+		if (Dirty)
+		{
+			free(m_pPixels);
+			m_pPixels = (unsigned char*)malloc(Size);
+		}
+
+		memcpy(m_pPixels, Other.m_pPixels, Size);
+	}
+	else
+	{
+		m_pPixels = NULL;
+	}
+
+	return *this;
+}
+
+MyQFrameBuffer::~MyQFrameBuffer(void)
+{
+	free(m_pPixels);
+}
+
+void MyQFrameBuffer::Set(unsigned char* pPixels, const int& Width, const int& Height)
+{
+	const bool Dirty = Width != m_Width || Height != m_Height;
+
+	m_Width = Width;
+	m_Height = Height;
+	m_NoPixels = m_Width * m_Height;
+
+	if (m_NoPixels <= 0)
+		return;
+
+	const int Size = 3 * m_NoPixels * sizeof(unsigned char);
+
+	if (Dirty)
+	{
+		free(m_pPixels);
+		m_pPixels = (unsigned char*)malloc(Size);
+	}
+
+	memcpy(m_pPixels, pPixels, Size);
+}
+
 using namespace std;
 
-void ParseTransferFunction(std::string xmlFileName, /*QList<QTransferFunction>& presetsTransferFunction,*/std::string selectedPreset= "manix_small")
+void ParseTransferFunction(std::string xmlFileName, /*QList<QTransferFunction>& presetsTransferFunction,*/std::string selectedPreset = "manix_small")
 {
 	QList<QTransferFunction> presetsTransferFunction;
 
@@ -135,7 +209,7 @@ void ParseCamera(std::string xmlFileName,/*QList<QCamera>& presetsQCamera, */std
 		}
 	}
 	XmlFile.close();
-	QCamera tmpCamera= presetsQCamera.at(0);
+	QCamera tmpCamera = presetsQCamera.at(0);
 	gScene.m_Camera.m_Film.m_Exposure = 1.0f - tmpCamera.GetFilm().GetExposure();
 	if (tmpCamera.GetFilm().IsDirty())
 	{
@@ -149,9 +223,10 @@ void ParseCamera(std::string xmlFileName,/*QList<QCamera>& presetsQCamera, */std
 		// 		// 
 		gScene.m_DirtyFlags.SetFlag(FilmResolutionDirty);
 	}
-	gScene.m_Camera.m_From	= tmpCamera.GetFrom();
-	gScene.m_Camera.m_Target	= tmpCamera.GetTarget();
-	gScene.m_Camera.m_Up		= tmpCamera.GetUp();
+	//Vec3f			m_From = tmpCamera.GetFrom();
+	gScene.m_Camera.m_From = tmpCamera.GetFrom();
+	gScene.m_Camera.m_Target = tmpCamera.GetTarget();
+	gScene.m_Camera.m_Up = tmpCamera.GetUp();
 	gScene.m_Camera.Update();
 	// Aperture
 	gScene.m_Camera.m_Aperture.m_Size = tmpCamera.GetAperture().GetSize();
@@ -250,58 +325,112 @@ void ParseLight(std::string xmlFileName,/*QList<QCamera>& presetsQCamera, */std:
 }
 
 
-void SetUpWindow(QVTKOpenGLNativeWidget &QtVtkWidget)
+//void SetUpWindow(QVTKOpenGLNativeWidget &QtVtkWidget)
+//{
+//	vtkSmartPointer<vtkImageActor>				m_ImageActor;
+//	vtkSmartPointer<vtkImageImport>				m_ImageImport;
+//	vtkSmartPointer<vtkInteractorStyleImage>	m_InteractorStyleImage;
+//	vtkSmartPointer<vtkRenderer>				m_SceneRenderer;
+//	vtkSmartPointer<vtkRenderWindow>			m_RenderWindow;
+//	vtkSmartPointer<vtkRenderWindowInteractor>	m_RenderWindowInteractor;
+//	vtkSmartPointer<vtkCallbackCommand>			m_KeyPressCallback;
+//	vtkSmartPointer<vtkCallbackCommand>			m_KeyReleaseCallback;
+//	vtkSmartPointer<vtkRealisticCameraStyle>	m_InteractorStyleRealisticCamera;
+//	m_SceneRenderer = vtkRenderer::New();
+//	m_SceneRenderer->SetBackground(0.25, 0.25, 0.25);
+//	m_SceneRenderer->SetBackground2(0.25, 0.25, 0.25);
+//	m_SceneRenderer->SetGradientBackground(true);
+//	m_SceneRenderer->GetActiveCamera()->SetPosition(0.0, 0.0, 1.0);
+//	m_SceneRenderer->GetActiveCamera()->SetFocalPoint(0.0, 0.0, 0.0);
+//	m_SceneRenderer->GetActiveCamera()->ParallelProjectionOn();
+//	m_RenderWindow = QtVtkWidget.renderWindow();
+//	m_RenderWindow->AddRenderer(m_SceneRenderer);
+//	
+//	m_InteractorStyleRealisticCamera = vtkSmartPointer<vtkRealisticCameraStyle>::New();
+//	m_InteractorStyleImage = vtkInteractorStyleImage::New();
+//	
+//	m_RenderWindow->GetInteractor()->SetInteractorStyle(m_InteractorStyleRealisticCamera);
+//
+//	m_RenderWindow->GetInteractor()->AddObserver(vtkCommand::KeyPressEvent, m_KeyPressCallback);
+//	m_RenderWindow->GetInteractor()->AddObserver(vtkCommand::KeyReleaseEvent, m_KeyReleaseCallback);
+//	m_ImageImport = vtkImageImport::New();
+//	m_ImageActor = vtkImageActor::New();
+//}
+
+void SetUpView(QVTKOpenGLNativeWidget &qtVtkWidget)
 {
-	vtkSmartPointer<vtkImageActor>				m_ImageActor;
-	vtkSmartPointer<vtkImageImport>				m_ImageImport;
-	vtkSmartPointer<vtkInteractorStyleImage>	m_InteractorStyleImage;
-	vtkSmartPointer<vtkRenderer>				m_SceneRenderer;
-	vtkSmartPointer<vtkRenderWindow>			m_RenderWindow;
-	vtkSmartPointer<vtkRenderWindowInteractor>	m_RenderWindowInteractor;
-	vtkSmartPointer<vtkCallbackCommand>			m_KeyPressCallback;
-	vtkSmartPointer<vtkCallbackCommand>			m_KeyReleaseCallback;
-	vtkSmartPointer<vtkRealisticCameraStyle>	m_InteractorStyleRealisticCamera;
-	m_SceneRenderer = vtkRenderer::New();
+	vtkNew<vtkImageActor>				m_ImageActor;
+	vtkNew<vtkImageImport>				m_ImageImport;
+	vtkNew<vtkInteractorStyleImage>	m_InteractorStyleImage;
+	vtkNew<vtkRenderer>				m_SceneRenderer;
+	vtkNew<vtkRenderWindow>			m_RenderWindow;
+	vtkNew<vtkRenderWindowInteractor>	m_RenderWindowInteractor;
+	vtkNew<vtkCallbackCommand>			m_KeyPressCallback;
+	vtkNew<vtkCallbackCommand>			m_KeyReleaseCallback;
+	vtkNew<vtkRealisticCameraStyle>	m_InteractorStyleRealisticCamera;
+	//m_SceneRenderer = vtkRenderer::New();
 	m_SceneRenderer->SetBackground(0.25, 0.25, 0.25);
 	m_SceneRenderer->SetBackground2(0.25, 0.25, 0.25);
 	m_SceneRenderer->SetGradientBackground(true);
 	m_SceneRenderer->GetActiveCamera()->SetPosition(0.0, 0.0, 1.0);
 	m_SceneRenderer->GetActiveCamera()->SetFocalPoint(0.0, 0.0, 0.0);
 	m_SceneRenderer->GetActiveCamera()->ParallelProjectionOn();
-	m_RenderWindow = QtVtkWidget.renderWindow();
+	//m_RenderWindow.
+	//m_RenderWindow =/*reinterpret_cast<vtkRenderWindow>*/(qtVtkWidget.renderWindow());
+
 	m_RenderWindow->AddRenderer(m_SceneRenderer);
-	
-	m_InteractorStyleRealisticCamera = vtkSmartPointer<vtkRealisticCameraStyle>::New();
-	m_InteractorStyleImage = vtkInteractorStyleImage::New();
-	
+
+	/*m_InteractorStyleRealisticCamera = vtkSmartPointer<vtkRealisticCameraStyle>::New();
+	m_InteractorStyleImage = vtkInteractorStyleImage::New();*/
+
 	m_RenderWindow->GetInteractor()->SetInteractorStyle(m_InteractorStyleRealisticCamera);
 
 	m_RenderWindow->GetInteractor()->AddObserver(vtkCommand::KeyPressEvent, m_KeyPressCallback);
 	m_RenderWindow->GetInteractor()->AddObserver(vtkCommand::KeyReleaseEvent, m_KeyReleaseCallback);
-	m_ImageImport = vtkImageImport::New();
-	m_ImageActor = vtkImageActor::New();
 }
 
-int main1()
+int main()
 {
 	std::string presetName = "manix_small";
-	std::string VolumeFile = R"(D:\Works\code\ExposureRenderApp\Source\build\Release\Examples\)"+ presetName+".mhd";
+	std::string VolumeFile = R"(D:\Works\code\ExposureRenderApp\Source\build\Release\Examples\)" + presetName + ".mhd";
+	myLoad(QString::fromStdString(VolumeFile));
+
+	std::string xmlFileName = R"(D:\Works\code\ExposureRenderApp\Source\build\Release\LightingPresets.xml)";
+	ParseLight(xmlFileName, presetName);
 
 
 	//加载Preset
-	std::string xmlFileName = R"(D:\Works\code\ExposureRenderApp\Source\build\Release\AppearancePresets.xml)";
+	xmlFileName = R"(D:\Works\code\ExposureRenderApp\Source\build\Release\AppearancePresets.xml)";
 	ParseTransferFunction(xmlFileName, presetName);
 
 	xmlFileName = R"(D:\Works\code\ExposureRenderApp\Source\build\Release\CameraPresets.xml)";
 	ParseCamera(xmlFileName, presetName);
 
-	xmlFileName = R"(D:\Works\code\ExposureRenderApp\Source\build\Release\LightingPresets.xml)";
-	ParseLight(xmlFileName, presetName);
 
 
-	QVTKOpenGLNativeWidget QtVtkWidget;
-	SetUpWindow(QtVtkWidget);
+	vtkNew<vtkImageActor>				m_ImageActor;
+	vtkNew<vtkImageImport>				m_ImageImport;
+	vtkNew<vtkInteractorStyleImage>	m_InteractorStyleImage;
+	vtkNew<vtkRenderer>				m_SceneRenderer;
+	vtkNew<vtkRenderWindow>			m_RenderWindow;
+	vtkNew<vtkRenderWindowInteractor>	m_RenderWindowInteractor;
+	vtkNew<vtkCallbackCommand>			m_KeyPressCallback;
+	vtkNew<vtkCallbackCommand>			m_KeyReleaseCallback;
+	vtkNew<vtkRealisticCameraStyle>	m_InteractorStyleRealisticCamera;
 
+	m_SceneRenderer->SetBackground(0.25, 0.25, 0.25);
+	m_SceneRenderer->SetBackground2(0.25, 0.25, 0.25);
+	m_SceneRenderer->SetGradientBackground(true);
+	m_SceneRenderer->GetActiveCamera()->SetPosition(0.0, 0.0, 1.0);
+	m_SceneRenderer->GetActiveCamera()->SetFocalPoint(0.0, 0.0, 0.0);
+	m_SceneRenderer->GetActiveCamera()->ParallelProjectionOn();
+
+	m_RenderWindow->AddRenderer(m_SceneRenderer);
+
+	m_RenderWindowInteractor->SetInteractorStyle(m_InteractorStyleRealisticCamera);
+	m_RenderWindowInteractor->SetRenderWindow(m_RenderWindow);
+	m_RenderWindowInteractor->AddObserver(vtkCommand::KeyPressEvent, m_KeyPressCallback);
+	m_RenderWindowInteractor->AddObserver(vtkCommand::KeyReleaseEvent, m_KeyReleaseCallback);
 
 
 
@@ -318,23 +447,42 @@ int main1()
 	{
 		std::cout << "cudaSetDevice:OK" << std::endl;
 	}
-	//加载Volume文件，读取Scene
-	//内部含有解析xml的Qt代码D:\\Works\\code\\ExposureRenderApp\\Source\\build\\Release\\Examples\\manix_small.mhd
-	//std::string VolumeFile=R"(D:\Works\code\ExposureRenderApp\Source\build\Release\Examples\manix_small.mhd)";
-	myLoad(QString::fromStdString(VolumeFile));
 
 
 
-
-
-
+	ResetDevice();
 
 	CScene SceneCopy;
 
+
 	gScene.m_Camera.m_SceneBoundingBox = gScene.m_BoundingBox;
 	gScene.m_Camera.SetViewMode(ViewModeFront);
+
+	gScene.m_Camera.m_From.x = -0.0572542995f;
+	gScene.m_Camera.m_From.y = 0.481312990f;
+	gScene.m_Camera.m_From.z = -0.449297994f;
+
+
+	gScene.m_Camera.m_Target.x = 0.436044991f;
+	gScene.m_Camera.m_Target.y = 0.549919009f;
+	gScene.m_Camera.m_Target.z = 0.478464007f;
+
+	gScene.m_Camera.m_Up.x = -0.295448005f;
+	gScene.m_Camera.m_Up.y = 0.777145028f;
+	gScene.m_Camera.m_Up.z = -0.555657029f;
+
+	gScene.m_Camera.m_FovV = 35.0f;
+
+	gScene.m_Camera.m_Film.m_Resolution.SetResX(400);
+	gScene.m_Camera.m_Film.m_Resolution.SetResY(500);
+
+	gScene.m_Camera.m_Focus.m_FocalDistance = 0.75f;
+
+	gScene.m_Camera.m_Focus.m_Type = CFocus::CenterScreen;
 	gScene.m_Camera.Update();
 	gScene.m_DirtyFlags.SetFlag(FilmResolutionDirty | CameraDirty);
+	gScene.m_Lighting.m_Lights->Update(gScene.m_BoundingBox);
+
 
 	cudaExtent Res;
 	Res.width = gScene.m_Resolution[0];
@@ -344,56 +492,132 @@ int main1()
 	BindDensityBuffer((short*)m_pDensityBuffer, Res);
 	BindGradientMagnitudeBuffer((short*)m_pGradientMagnitudeBuffer, Res);
 	ResetRenderCanvasView();
-
+	
 	CTiming FPS, RenderImage, BlurImage, PostProcessImage, DenoiseImage;
-
+	int idxImage=0;
 	{
 		try
 		{
-			while ('c' != getchar())
+			char ch;
+			while (1)
 			{
-				/*if (m_Pause)
-					continue;*/
-
-					/*gStatus.SetPreRenderFrame();*/
-
-					// CUDA time for profiling
+				if (_kbhit()) 
+				{//如果有按键按下，则_kbhit()函数返回真
+					ch = _getch();//使用_getch()函数获取按下的键值
+					cout << ch;
+					if (ch == 27) 
+					{ break; }//当按下ESC时循环，ESC键的键值时27.
+				}
 				CCudaTimer TmrFps;
 
 				SceneCopy = gScene;
 
-				/*gStatus.SetStatisticChanged("Camera", "Position", FormatVector(SceneCopy.m_Camera.m_From));
-				gStatus.SetStatisticChanged("Camera", "Target", FormatVector(SceneCopy.m_Camera.m_Target));
-				gStatus.SetStatisticChanged("Camera", "Up Vector", FormatVector(SceneCopy.m_Camera.m_Up));*/
+				SceneCopy.m_DenoiseParams.SetWindowRadius(3.0f);
+				SceneCopy.m_DenoiseParams.m_LerpC = 0.33f * (max((float)gScene.GetNoIterations(), 1.0f) * 0.035f);
+				//SceneCopy.m_Camera.m_From = { -0.0572542995f,0.481312990f,-0.449297994f };
 
+
+				//SceneCopy.m_Camera.m_Target = { 0.436044991f,0.549919009f,0.478464007f };
+				//SceneCopy.m_Camera.m_Up = { -0.295448005f,0.777145028f,-0.555657029f };
+
+				//SceneCopy.m_Camera.Update();
+				////SceneCopy.m_Camera.m_FovV = 55.0000000f;
+				//SceneCopy.m_Camera.m_Film.m_Resolution.SetResX(400L);
+				//SceneCopy.m_Camera.m_Film.m_Resolution.SetResY(500L);
+				//SceneCopy.m_Camera.m_Film.m_Exposure = 0.25f;
+				//SceneCopy.m_Camera.m_Film.m_Resolution.Update();
+				//SceneCopy.m_Camera.m_Film.Update(SceneCopy.m_Camera.m_FovV, SceneCopy.m_Camera.m_Aperture.m_Size);
+
+				//SceneCopy.m_DensityScale = 100.00000f;
+				//SceneCopy.m_GradientFactor = 3.0f;
+				//SceneCopy.m_Variance = 1.65230134f * 1e-18;
+				//SceneCopy.m_Camera.m_Focus.m_Type = CFocus::CenterScreen;
+				//SceneCopy.m_Camera.m_Focus.m_FocalDistance = 0.75f;//0.756038606f
+				//SceneCopy.m_Camera.Update();
+				//CFlags flag(1024L);
+				//SceneCopy.m_DirtyFlags = flag;
+
+				/*SceneCopy.m_TransferFunctions.m_Opacity.m_NoNodes = 0;
+				SceneCopy.m_TransferFunctions.m_Diffuse.m_NoNodes = 0;
+				SceneCopy.m_TransferFunctions.m_Emission.m_NoNodes = 0;
+				SceneCopy.m_TransferFunctions.m_Roughness.m_NoNodes = 0;
+				SceneCopy.m_TransferFunctions.m_Specular.m_NoNodes = 0;*/
+
+				/*CColorRgbHdr mc(0.0f, 0.0f, 0.0f);
+				for (int idx = 0; idx < MAX_NO_TF_POINTS; idx++)
+				{
+					SceneCopy.m_TransferFunctions.m_Opacity.m_P[idx] = 0.0f;
+					SceneCopy.m_TransferFunctions.m_Opacity.m_C[idx] = mc;
+
+					SceneCopy.m_TransferFunctions.m_Diffuse.m_P[idx] = 0.0f;
+					SceneCopy.m_TransferFunctions.m_Diffuse.m_C[idx] = mc;
+
+					SceneCopy.m_TransferFunctions.m_Emission.m_P[idx] = 0.0f;
+					SceneCopy.m_TransferFunctions.m_Emission.m_C[idx] = mc;
+
+					SceneCopy.m_TransferFunctions.m_Roughness.m_P[idx] = 0.0f;
+					SceneCopy.m_TransferFunctions.m_Roughness.m_C[idx] = mc;
+
+					SceneCopy.m_TransferFunctions.m_Specular.m_P[idx] = 0.0f;
+					SceneCopy.m_TransferFunctions.m_Specular.m_C[idx] = mc;
+				}*/
+
+				/*SceneCopy.m_Lighting.m_NoLights = 2;
+				SceneCopy.m_Lighting.m_Lights[0].m_SkyRadius = 1485.12122f;
+				SceneCopy.m_Lighting.m_Lights[0].m_P={ 0.388198584f,0.500000000f,0.388198584f };
+				SceneCopy.m_Lighting.m_Lights[0].m_Target = { 0.388198584f,0.500000000f,0.388198584f };*/
+				
+				/*SceneCopy.m_Lighting.m_Lights[0].m_N = { 1.0f,0.0f,0.0f };
+				SceneCopy.m_Lighting.m_Lights[0].m_U = { 1.0f,0.0f,0.0f };
+				SceneCopy.m_Lighting.m_Lights[0].m_V = { 1.0f,0.0f,0.0f };*/
+				//SceneCopy.m_Lighting.m_Lights[0].m_Area = 27716200.0f;
+				//SceneCopy.m_Lighting.m_Lights[0].m_AreaPdf = 3.60799817f*1e-08;
+				//CColorRgbHdr lc(10.0000000f, 10.0000000f, 10.0000000f);
+				//SceneCopy.m_Lighting.m_Lights[0].m_Color = lc;
+
+				//lc.r = 1.12023330f; lc.g = 2.24046659f; lc.b = 3.36069989f;
+				//SceneCopy.m_Lighting.m_Lights[0].m_ColorTop = lc;
+
+				//lc.r = 3.36069989f; lc.g = 2.24046659f; lc.b = 1.67376029f;
+				//SceneCopy.m_Lighting.m_Lights[0].m_ColorMiddle = lc;
+				//SceneCopy.m_Lighting.m_Lights[0].m_ColorBottom = lc;
+				//SceneCopy.m_Lighting.m_Lights[0].m_T = 0L;
+
+
+				//SceneCopy.m_Lighting.m_Lights[1].m_P = { 0.316860646f,1.67484617f,-2.26877022f };
+				//SceneCopy.m_Lighting.m_Lights[1].m_Target = { 0.388198584f,0.500000000f,0.388198584f };
+				////lc.r = 100.0f; lc.g = 66.6666718f; lc.b = 49.8039207f;
+				////SceneCopy.m_Lighting.m_Lights[1].m_Color = lc;
+
+				////SceneCopy.m_Lighting.m_Lights[1] = SceneCopy.m_Lighting.m_Lights[2];
+				////SceneCopy.m_DenoiseParams.m_Enabled = 247;
+				//SceneCopy.m_DenoiseParams.m_LerpC = 0.0346500017f;
+
+				//m_DirtyFlags：第一次是1028，第二次是41988
 				// Resizing the image canvas requires special attention
 				if (SceneCopy.m_DirtyFlags.HasFlag(FilmResolutionDirty))
 				{
-					if (!m_pRenderImage)
-					{
-						free(m_pRenderImage);
-						m_pRenderImage = NULL;
-					}
+					free(m_pRenderImage);
+					m_pRenderImage = NULL;
+
 					m_pRenderImage = (CColorRgbLdr*)malloc(SceneCopy.m_Camera.m_Film.m_Resolution.GetNoElements() * sizeof(CColorRgbLdr));
+
 					if (m_pRenderImage)
 						memset(m_pRenderImage, 0, SceneCopy.m_Camera.m_Film.m_Resolution.GetNoElements() * sizeof(CColorRgbLdr));
-					SceneCopy.SetNoIterations(0);
 				}
 
 				// Restart the rendering when when the camera, lights and render params are dirty
 				if (SceneCopy.m_DirtyFlags.HasFlag(CameraDirty | LightsDirty | RenderParamsDirty | TransferFunctionDirty))
 				{
 					ResetRenderCanvasView();
-					// Reset no. iterations
-					gScene.SetNoIterations(0);
+					//// Reset no. iterations
+					//gScene.SetNoIterations(0);
 				}
 
 				// At this point, all dirty flags should have been taken care of, since the flags in the original scene are now cleared
-				gScene.m_DirtyFlags.ClearAllFlags();
+				//gScene.m_DirtyFlags.ClearAllFlags();
 
-				SceneCopy.m_DenoiseParams.SetWindowRadius(3.0f);
-				SceneCopy.m_DenoiseParams.m_LerpC = 0.33f * (max((float)gScene.GetNoIterations(), 1.0f) * 0.035f);
-				SceneCopy.m_Camera.Update();
+				
 
 				BindConstants(&SceneCopy);
 
@@ -407,34 +631,25 @@ int main1()
 
 				Render(0, SceneCopy, RenderImage, BlurImage, PostProcessImage, DenoiseImage);
 
-				gScene.SetNoIterations(gScene.GetNoIterations() + 1);
 
-				gStatus.SetStatisticChanged("Timings", "Render Image", QString::number(RenderImage.m_FilteredDuration, 'f', 2), "ms.");
-				gStatus.SetStatisticChanged("Timings", "Blur Estimate", QString::number(BlurImage.m_FilteredDuration, 'f', 2), "ms.");
-				gStatus.SetStatisticChanged("Timings", "Post Process Estimate", QString::number(PostProcessImage.m_FilteredDuration, 'f', 2), "ms.");
-				gStatus.SetStatisticChanged("Timings", "De-noise Image", QString::number(DenoiseImage.m_FilteredDuration, 'f', 2), "ms.");
-
-				FPS.AddDuration(1000.0f / TmrFps.ElapsedTime());
-
-				gStatus.SetStatisticChanged("Performance", "FPS", QString::number(FPS.m_FilteredDuration, 'f', 2), "Frames/Sec.");
-				gStatus.SetStatisticChanged("Performance", "No. Iterations", QString::number(SceneCopy.GetNoIterations()), "Iterations");
 
 				HandleCudaError(cudaMemcpy(m_pRenderImage, GetDisplayEstimate(), SceneCopy.m_Camera.m_Film.m_Resolution.GetNoElements() * sizeof(CColorRgbLdr), cudaMemcpyDeviceToHost));
 
-				gFrameBuffer.Set((unsigned char*)m_pRenderImage, SceneCopy.m_Camera.m_Film.GetWidth(), SceneCopy.m_Camera.m_Film.GetHeight());
-				const QString ImageFilePath = /*QApplication::applicationDirPath() + */"./Output/" + m_SaveBaseName + "_" + QString::number(SceneCopy.GetNoIterations()) + ".png";
+				gMyFrameBuffer.Set((unsigned char*)m_pRenderImage, SceneCopy.m_Camera.m_Film.GetWidth(), SceneCopy.m_Camera.m_Film.GetHeight());
+				std::string saveImage = R"(D:\Works\code\ExposureRenderApp\Source\build\Release\Output\)";
+
+				const QString ImageFilePath = QString::fromStdString(saveImage) + "Res_" + QString::number(idxImage) + ".png";
 				SaveImage((unsigned char*)m_pRenderImage, SceneCopy.m_Camera.m_Film.m_Resolution.GetResX(), SceneCopy.m_Camera.m_Film.m_Resolution.GetResY(), ImageFilePath);
 				if (m_SaveFrames.indexOf(SceneCopy.GetNoIterations()) > 0)
 				{
-
-
 					SaveImage((unsigned char*)m_pRenderImage, SceneCopy.m_Camera.m_Film.m_Resolution.GetResX(), SceneCopy.m_Camera.m_Film.m_Resolution.GetResY(), ImageFilePath);
 				}
-
-				gStatus.SetPostRenderFrame();
+				idxImage += 1;
+				//gStatus.SetPostRenderFrame();
+				Sleep(1000);
 			}
 		}
-		catch (QString* pMessage)
+		catch (...)
 		{
 			//		Log(*pMessage + ", rendering will be aborted");
 

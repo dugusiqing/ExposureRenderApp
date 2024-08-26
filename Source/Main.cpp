@@ -15,7 +15,7 @@
 
 #include "MainWindow.h"
 
-int main(int ArgumentCount, char* pArgv[])
+int main1(int ArgumentCount, char* pArgv[])
 {
 	// Create the application
     QApplication Application(ArgumentCount, pArgv);

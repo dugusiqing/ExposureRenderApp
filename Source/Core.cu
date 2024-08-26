@@ -13,6 +13,8 @@
 
 #include "Core.cuh"
 
+#include <iostream>
+
 texture<short, cudaTextureType3D, cudaReadModeNormalizedFloat>		gTexDensity;
 texture<short, cudaTextureType3D, cudaReadModeNormalizedFloat>		gTexGradientMagnitude;
 texture<float, cudaTextureType3D, cudaReadModeElementType>			gTexExtinction;
@@ -407,8 +409,9 @@ void BindConstants(CScene* pScene)
 
 void Render(const int& Type, CScene& Scene, CTiming& RenderImage, CTiming& BlurImage, CTiming& PostProcessImage, CTiming& DenoiseImage)
 {
+	cout << "-------0---------" << endl;
 	CScene* pDevScene = NULL;
-
+	
 	HandleCudaError(cudaMalloc(&pDevScene, sizeof(CScene)));
 	HandleCudaError(cudaMemcpy(pDevScene, &Scene, sizeof(CScene), cudaMemcpyHostToDevice));
 
@@ -422,7 +425,7 @@ void Render(const int& Type, CScene& Scene, CTiming& RenderImage, CTiming& BlurI
 	HandleCudaError(cudaMalloc(&pDevView, sizeof(CCudaView)));
 	HandleCudaError(cudaMemcpy(pDevView, &gRenderCanvasView, sizeof(CCudaView), cudaMemcpyHostToDevice));
 
-	
+	cout << "-------1---------"<< endl;
 	CCudaTimer TmrRender;
 	
 	switch (Type)
@@ -439,24 +442,25 @@ void Render(const int& Type, CScene& Scene, CTiming& RenderImage, CTiming& BlurI
 			break;
 		}
 	}
-
-	RenderImage.AddDuration(TmrRender.ElapsedTime());
 	
+	//RenderImage.AddDuration(TmrRender.ElapsedTime());
+	cout << "-------2---------" << endl;
  	CCudaTimer TmrBlur;
 	Blur(&Scene, pDevScene, pDevView);
-	BlurImage.AddDuration(TmrBlur.ElapsedTime());
+	//BlurImage.AddDuration(TmrBlur.ElapsedTime());
 
 	CCudaTimer TmrPostProcess;
 	Estimate(&Scene, pDevScene, pDevView);
-	PostProcessImage.AddDuration(TmrPostProcess.ElapsedTime());
+	//PostProcessImage.AddDuration(TmrPostProcess.ElapsedTime());
 
 	ToneMap(&Scene, pDevScene, pDevView);
 
 	CCudaTimer TmrDenoise;
 	Denoise(&Scene, pDevScene, pDevView);
-	DenoiseImage.AddDuration(TmrDenoise.ElapsedTime());
+	//DenoiseImage.AddDuration(TmrDenoise.ElapsedTime());
 	
 
 	HandleCudaError(cudaFree(pDevScene));
 	HandleCudaError(cudaFree(pDevView));
+	cout << "-------3---------" << endl;
 }

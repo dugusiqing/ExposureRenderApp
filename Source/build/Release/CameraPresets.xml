@@ -1,117 +1,117 @@
 <!DOCTYPE Camera>
 <Presets>
-<Preset Name="manix_small">
-<Film>
-<Width Value="400"/>
-<Height Value="500"/>
-<Exposure Value="0.75"/>
-</Film>
-<Aperture>
-<Size Value="0"/>
-</Aperture>
-<Projection>
-<FieldOfView Value="35"/>
-</Projection>
-<Focus>
-<FocalDistance Value="0.75"/>
-</Focus>
-<From Y="0.48131299" X="-0.0572543" Z="-0.44929799"/>
-<Target Y="0.54991901" X="0.43604499" Z="0.47846401"/>
-<Up Y="0.77714503" X="-0.29544801" Z="-0.55565703"/>
-</Preset>
-<Preset Name="bonsai_small">
-<Film>
-<Width Value="400"/>
-<Height Value="600"/>
-<Exposure Value="0.58130002"/>
-</Film>
-<Aperture>
-<Size Value="0.0062000002"/>
-</Aperture>
-<Projection>
-<FieldOfView Value="35"/>
-</Projection>
-<Focus>
-<FocalDistance Value="0.75"/>
-</Focus>
-<From Y="0.26245299" X="-0.214269" Z="-0.43662"/>
-<Target Y="0.363538" X="0.548536" Z="0.27470699"/>
-<Up Y="0.75699401" X="-0.477882" Z="-0.44563201"/>
-</Preset>
-<Preset Name="engine_small">
-<Film>
-<Width Value="400"/>
-<Height Value="550"/>
-<Exposure Value="0.77640003"/>
-</Film>
-<Aperture>
-<Size Value="0.0221"/>
-</Aperture>
-<Projection>
-<FieldOfView Value="35"/>
-</Projection>
-<Focus>
-<FocalDistance Value="0.75"/>
-</Focus>
-<From Y="0.31738999" X="-0.607903" Z="-0.34599999"/>
-<Target Y="0.552984" X="0.53270501" Z="0.26047099"/>
-<Up Y="0.69966" X="-0.63084298" Z="-0.33542401"/>
-</Preset>
-<Preset Name="backpack_small">
-<Film>
-<Width Value="512"/>
-<Height Value="512"/>
-<Exposure Value="0.4553"/>
-</Film>
-<Aperture>
-<Size Value="0"/>
-</Aperture>
-<Projection>
-<FieldOfView Value="35"/>
-</Projection>
-<Focus>
-<FocalDistance Value="0.75"/>
-</Focus>
-<From Y="1.00409" X="1.5297199" Z="0.119461"/>
-<Target Y="0.35826501" X="0.53962201" Z="0.46037701"/>
-<Up Y="0.99802101" X="0.0593694" Z="-0.0204433"/>
-</Preset>
-<Preset Name="artifix_small">
-<Film>
-<Width Value="512"/>
-<Height Value="512"/>
-<Exposure Value="0.77240002"/>
-</Film>
-<Aperture>
-<Size Value="0"/>
-</Aperture>
-<Projection>
-<FieldOfView Value="35"/>
-</Projection>
-<Focus>
-<FocalDistance Value="0.75"/>
-</Focus>
-<From Y="1.46746" X="0.91833597" Z="-0.55240601"/>
-<Target Y="0.59159899" X="0.44902799" Z="0.45403099"/>
-<Up Y="0.99861097" X="-0.022112001" Z="0.0474138"/>
-</Preset>
-<Preset Name="macoessix_small">
-<Film>
-<Width Value="400"/>
-<Height Value="800"/>
-<Exposure Value="0.077200003"/>
-</Film>
-<Aperture>
-<Size Value="0"/>
-</Aperture>
-<Projection>
-<FieldOfView Value="35"/>
-</Projection>
-<Focus>
-<FocalDistance Value="0.46599999"/>
-</Focus>
-<From Y="0.286852" X="-0.44392499" Z="-0.280112"/>
-<Target Y="0.51681298" X="0.322826" Z="0.393428"/>
-<Up Y="0.669608" X="-0.55800098" Z="-0.490163"/>
-</Preset>
+    <Preset Name="manix_small">
+        <Film>
+            <Width Value="400" />
+            <Height Value="500" />
+            <Exposure Value="0.75" />
+        </Film>
+        <Aperture>
+            <Size Value="0" />
+        </Aperture>
+        <Projection>
+            <FieldOfView Value="35" />
+        </Projection>
+        <Focus>
+            <FocalDistance Value="0.75" />
+        </Focus>
+        <From Y="0.48131299" Z="-0.44929799" X="-0.0572543" />
+        <Target Y="0.54991901" Z="0.47846401" X="0.43604499" />
+        <Up Y="0.77714503" Z="-0.55565703" X="-0.29544801" />
+    </Preset>
+    <Preset Name="bonsai_small">
+        <Film>
+            <Width Value="400" />
+            <Height Value="600" />
+            <Exposure Value="0.58130002" />
+        </Film>
+        <Aperture>
+            <Size Value="0.0062000002" />
+        </Aperture>
+        <Projection>
+            <FieldOfView Value="35" />
+        </Projection>
+        <Focus>
+            <FocalDistance Value="0.75" />
+        </Focus>
+        <From Y="0.26245299" Z="-0.43662" X="-0.214269" />
+        <Target Y="0.363538" Z="0.27470699" X="0.548536" />
+        <Up Y="0.75699401" Z="-0.44563201" X="-0.477882" />
+    </Preset>
+    <Preset Name="engine_small">
+        <Film>
+            <Width Value="400" />
+            <Height Value="550" />
+            <Exposure Value="0.77640003" />
+        </Film>
+        <Aperture>
+            <Size Value="0.0221" />
+        </Aperture>
+        <Projection>
+            <FieldOfView Value="35" />
+        </Projection>
+        <Focus>
+            <FocalDistance Value="0.75" />
+        </Focus>
+        <From Y="0.31738999" Z="-0.34599999" X="-0.607903" />
+        <Target Y="0.552984" Z="0.26047099" X="0.53270501" />
+        <Up Y="0.69966" Z="-0.33542401" X="-0.63084298" />
+    </Preset>
+    <Preset Name="backpack_small">
+        <Film>
+            <Width Value="512" />
+            <Height Value="512" />
+            <Exposure Value="0.4553" />
+        </Film>
+        <Aperture>
+            <Size Value="0" />
+        </Aperture>
+        <Projection>
+            <FieldOfView Value="35" />
+        </Projection>
+        <Focus>
+            <FocalDistance Value="0.75" />
+        </Focus>
+        <From Y="1.00409" Z="0.119461" X="1.5297199" />
+        <Target Y="0.35826501" Z="0.46037701" X="0.53962201" />
+        <Up Y="0.99802101" Z="-0.0204433" X="0.0593694" />
+    </Preset>
+    <Preset Name="artifix_small">
+        <Film>
+            <Width Value="512" />
+            <Height Value="512" />
+            <Exposure Value="0.77240002" />
+        </Film>
+        <Aperture>
+            <Size Value="0" />
+        </Aperture>
+        <Projection>
+            <FieldOfView Value="35" />
+        </Projection>
+        <Focus>
+            <FocalDistance Value="0.75" />
+        </Focus>
+        <From Y="1.46746" Z="-0.55240601" X="0.91833597" />
+        <Target Y="0.59159899" Z="0.45403099" X="0.44902799" />
+        <Up Y="0.99861097" Z="0.0474138" X="-0.022112001" />
+    </Preset>
+    <Preset Name="macoessix_small">
+        <Film>
+            <Width Value="400" />
+            <Height Value="800" />
+            <Exposure Value="0.077200003" />
+        </Film>
+        <Aperture>
+            <Size Value="0" />
+        </Aperture>
+        <Projection>
+            <FieldOfView Value="35" />
+        </Projection>
+        <Focus>
+            <FocalDistance Value="0.46599999" />
+        </Focus>
+        <From Y="0.286852" Z="-0.280112" X="-0.44392499" />
+        <Target Y="0.51681298" Z="0.393428" X="0.322826" />
+        <Up Y="0.669608" Z="-0.490163" X="-0.55800098" />
+    </Preset>
 </Presets>

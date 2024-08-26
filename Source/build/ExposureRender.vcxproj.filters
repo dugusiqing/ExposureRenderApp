@@ -214,6 +214,9 @@
     <ClCompile Include="D:\Works\code\ExposureRenderApp\Source\build\ExposureRender_autogen\mocs_compilation_RelWithDebInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="myMain.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\MainWindow.h">
@@ -416,6 +419,9 @@
     </ClInclude>
     <ClInclude Include="D:\Works\code\ExposureRenderApp\Source\LogDockWidget.h">
       <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="myMain.h">
+      <Filter>Main</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
